@@ -7,22 +7,21 @@ const getLeaguedata = async () => {
   return eval(`${data}`);
 };
 
-const session =
-  "53616c7465645f5f07ddfc30c813fddbd016d27f387c13fc66f73078219b1714025a58e77260e99ac079736a231d96ca070c9dbc714df02fcca59e9e81d84491";
+const session = "";
 
 const getJsonData = async () => {
-  // const res = await fetch(
-  //   "https://adventofcode.com/2019/leaderboard/private/view/829678.json",
-  //   {
-  //     headers: {
-  //       "Cookie": `session=${session}`,
-  //     },
-  //   },
-  // );
+  const res = await fetch(
+    "https://adventofcode.com/2019/leaderboard/private/view/829678.json",
+    {
+      headers: {
+        "Cookie": `session=${session}`,
+      },
+    },
+  );
 
-  // if (res.ok) {
-  //   return await res.json();
-  // }
+  if (res.ok) {
+    return await res.json();
+  }
 
   const data = await Deno.readTextFile("./dummyData.json");
   return JSON.parse(data);
